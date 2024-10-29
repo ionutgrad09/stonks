@@ -1,0 +1,33 @@
+.listItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.listItem__icon {
+  width: 24px;
+  height: 24px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.listItem__icon > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.listItem__value {
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  user-select: none;
+}

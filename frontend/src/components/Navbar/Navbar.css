@@ -1,0 +1,44 @@
+nav ul {
+  padding: 2px;
+  display: flex;
+  list-style-type: none;
+  gap: 14px;
+  margin: 0;
+  /*margin: 12px 0 0 0;*/
+}
+
+nav {
+  background: var(--colorDark);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: var(--colorWhite);
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  padding: 8px;
+  border-radius: 8px;
+  transition: 0.17s;
+}
+
+nav a:hover {
+  color: var(--colorPrimary);
+}
+
+nav a.active {
+  background: var(--colorPrimary);
+  color: var(--colorDark);
+}
+
+@media (max-width: 767px) {
+  nav ul {
+    gap: 4px;
+  }
+  nav a {
+    font-size: 1em;
+  }
+}

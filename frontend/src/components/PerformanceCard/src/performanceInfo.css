@@ -1,0 +1,17 @@
+.performanceInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.performanceInfo__value {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.performanceInfo__value--up {
+  color: green;
+}
+
+.performanceInfo__value--down {
+  color: red;
+}

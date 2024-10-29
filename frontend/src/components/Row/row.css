@@ -1,0 +1,24 @@
+.row {
+  margin: 8px;
+  display: flex;
+}
+
+.row--spacingXs {
+  gap: 4px;
+}
+
+.row--spacingSm {
+  gap: 6px;
+}
+
+.row--spacingMd {
+  gap: 8px;
+}
+
+.row--spacingLg {
+  gap: 12px;
+}
+
+.row--spacingXl {
+  gap: 16px;
+}

@@ -1,0 +1,16 @@
+.performanceCard {
+  /*display: flex;*/
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: white;
+  border-radius: 4px;
+  padding: 6px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.performanceCard {
+}

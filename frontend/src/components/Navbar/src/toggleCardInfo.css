@@ -1,0 +1,11 @@
+.toggleCardInfo {
+  color: white;
+  margin-right: 10px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.toggleCardInfo input[type='checkbox'] {
+  accent-color: var(--colorPrimary);
+}
