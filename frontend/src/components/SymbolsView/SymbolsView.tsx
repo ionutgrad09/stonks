@@ -2,13 +2,15 @@ import "./symbolsView.css";
 import SymbolsGrid from '@/components/SymbolsGrid';
 import PriceChart from '@/components/PriceChart';
 import DesktopInfo from './src/DesktopInfo';
-import {useState} from 'react';
+import {useAppDispatch, useAppSelector} from "@/hooks/redux";
+import {selectors, dashboardOptionsSlice} from "@/store/dashboardOptionsSlice";
 
 const SymbolsView = () => {
-  const [activeSymbol, setActiveSymbol] = useState<null | string>(null);
+    const activeSymbol = useAppSelector(selectors.getActiveSymbol);
+    const dispatch = useAppDispatch();
 
-  const handleSymbolClick = (symbolId: string) => {
-    setActiveSymbol((s) => s === symbolId ? null : symbolId);
+    const handleSymbolClick = (symbolId: string) => {
+        dispatch(dashboardOptionsSlice.actions.setActiveSymbol(symbolId !== activeSymbol ? symbolId : null));
   };
 
   return (

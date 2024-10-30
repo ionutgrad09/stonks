@@ -1,12 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 interface StoreState {
   activeSymbol: string | null;
   showCardInfo: boolean;
 }
 
+interface SymbolPayload {
+  activeSymbol: string;
+}
+
 const initialState: StoreState = {
-  activeSymbol: '',
+  activeSymbol: null,
   showCardInfo: true
 };
 
@@ -16,12 +20,20 @@ export const dashboardOptionsSlice = createSlice({
   reducers: {
     toggleShowCardInfo: (state) => {
       state.showCardInfo = !state.showCardInfo;
+    },
+    setActiveSymbol: (state, action: PayloadAction<string | null>) => {
+      state.activeSymbol = action.payload;
     }
   }
 });
 
-export const { toggleShowCardInfo } = dashboardOptionsSlice.actions;
 
-export const selectShowCardInfo = (state: { store: StoreState }) => state.store.showCardInfo;
+const selectShowCardInfo = (state: { store: StoreState }) => state.store.showCardInfo;
+const getActiveSymbol = (state: { store: StoreState }) => state.store.activeSymbol;
 
+const selectors = {
+    selectShowCardInfo,
+    getActiveSymbol
+}
 export default dashboardOptionsSlice.reducer;
+export { selectors };
