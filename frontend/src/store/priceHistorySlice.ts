@@ -32,9 +32,9 @@ const initialState: PriceHistoryState = {
 export const fetchPriceHistory = createAsyncThunk(
   'stocks/fetchPriceHistory',
   // if you type your function argument here
-  async (symbolId: string, thunkAPI) => {
+  async ({ symbolId, signal }: { symbolId: string; signal: AbortSignal }, thunkAPI) => {
     const response = await fetch(`http://localhost:3100/api/stock/history/${symbolId}`, {
-      signal: thunkAPI.signal
+      signal
     });
     return (await response.json()) as PriceHistoryResponse;
   }

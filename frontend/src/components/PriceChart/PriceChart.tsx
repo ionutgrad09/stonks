@@ -18,7 +18,7 @@ const PriceChart = ({ symbolId }: PriceChartProps) => {
     }
 
     const controller = new AbortController();
-    dispatch(fetchPriceHistory(symbolId));
+    dispatch(fetchPriceHistory({ symbolId, signal: controller.signal }));
 
     return () => controller.abort(); // Cleanup to abort previous fetch
   }, [dispatch, symbolId])

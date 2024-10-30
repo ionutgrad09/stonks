@@ -54,11 +54,6 @@
   padding: 5px;
 }
 
-.symbolCard__content__price {
-  display: flex;
-  justify-content: space-between;
-}
-
 @keyframes shake {
   10%,
   90% {
