@@ -8,8 +8,8 @@ type PriceInfoProps = {
 const SymbolPrice = ({ computedPrice }: PriceInfoProps) => {
     return (
         <div className="priceInfo">
-            <p>Price:</p>
-            <div>{computedPrice}</div>
+            <p className="priceInfo__label">Price:</p>
+            <p className="priceInfo__value">{computedPrice}</p>
         </div>
     );
 };

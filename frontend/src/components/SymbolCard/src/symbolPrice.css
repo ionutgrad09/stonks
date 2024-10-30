@@ -1,4 +1,17 @@
 .priceInfo {
     display: flex;
     justify-content: space-between;
+    align-items: end;
+    margin-bottom: 5px;
+}
+
+.priceInfo__label {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.priceInfo__value {
+    font-size: 24px;
+    font-weight: bold;
 }

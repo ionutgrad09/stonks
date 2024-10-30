@@ -1,8 +1,8 @@
 import './symbolCard.css';
-import {useAppSelector} from '@/hooks/redux';
-import {getLargeNumberWithCurrency, getPriceWithCurrency} from "@/utils/numbers";
+import { useAppSelector } from '@/hooks/redux';
+import { getLargeNumberWithCurrency, getPriceWithCurrency } from "@/utils/numbers";
 import usePreviousValue from "@/hooks/usePreviousValue";
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import {selectors} from "@/store/dashboardOptionsSlice";
 import PriceInfo from "@/components/SymbolCard/src/SymbolPrice";
 import SymbolInfo from "@/components/SymbolCard/src/SymbolInfo";
@@ -27,31 +27,31 @@ const SymbolCard = ({ id, onClick, price, activeSymbol }: SymbolCardProps) => {
   const computedPrice = useMemo(() => price ? getPriceWithCurrency(price) : "--", [price]);
   const computedMarketCap = useMemo(() => marketCap ? getLargeNumberWithCurrency(marketCap) : "--", [marketCap]);
 
-    const priceChangeStatus = useMemo(() => {
-        if (!previousPrice) return { up: false, down: false, significant: false };
+  const priceChangeStatus = useMemo(() => {
+      if (!previousPrice) {
+        return { up: false, down: false, significant: false };
+      }
 
-        const up = price > previousPrice;
-        const down = price < previousPrice;
-        const significant = price >= previousPrice * 1.25 || price <= previousPrice * 0.75;
+      const up = price > previousPrice;
+      const down = price < previousPrice;
+      // 25% change is considered significant
+      const significant = price >= previousPrice * 1.25 || price <= previousPrice * 0.75;
 
-        return { up, down, significant };
-    }, [price, previousPrice]);
+      return { up, down, significant };
+  }, [price, previousPrice]);
 
-    const isActive = activeSymbol === id;
-    const isNotActive = activeSymbol !== id && activeSymbol !== null;
+  const isActive = activeSymbol === id;
+  const isNotActive = activeSymbol !== id && activeSymbol !== null;
 
-    const containerClassNames = useMemo(() => {
-        const classes = ['symbolCard'];
-
-        if (!showInfo) classes.push('symbolCard--noInfo');
-        if (isNotActive) classes.push('symbolCard--notActive');
-        if (isActive) classes.push('symbolCard--active');
-        if (priceChangeStatus.up) classes.push('symbolCard--green');
-        if (priceChangeStatus.down) classes.push('symbolCard--red');
-        if (priceChangeStatus.significant) classes.push('symbolCard__shake');
-
-        return classes.join(' ');
-    }, [showInfo, isActive, isNotActive, priceChangeStatus]);
+  const containerClassNames = useMemo(() => (['symbolCard',
+      !showInfo && 'symbolCard--noInfo',
+      isNotActive && 'symbolCard--notActive',
+      isActive && 'symbolCard--active',
+      priceChangeStatus.up && 'symbolCard--green',
+      priceChangeStatus.down && 'symbolCard--red',
+      priceChangeStatus.significant && 'symbolCard__shake',
+    ].filter(Boolean).join(' ')),
+    [showInfo, isActive, isNotActive, priceChangeStatus]);
 
 
   return (
