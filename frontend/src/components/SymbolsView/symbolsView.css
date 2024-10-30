@@ -1,4 +1,11 @@
+.symbolsView {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
 .symbolsView__content {
+    height: 100%;
     display: flex;
     flex-direction: column-reverse;
     gap: 10px;
@@ -6,6 +13,10 @@
 }
 
 @media (min-width: 1023px) {
+    .symbolsView {
+        height: 80%
+    }
+
     .symbolsView__chart {
         width: 400px;
     }
@@ -13,8 +24,4 @@
     .symbolsView__content {
         flex-direction: row;
     }
-}
-
-.symbolsView__cards {
-    flex: 1;
 }
