@@ -5,7 +5,7 @@ import TrendLabel from './src/VolumeLabel';
 
 type PerformanceCardProps = {
   title: string;
-  volume: number;
+  volume: string;
   change: number;
 };
 

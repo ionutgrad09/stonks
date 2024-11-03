@@ -1,7 +1,11 @@
+import React from 'react';
 import SymbolsView from '@/components/SymbolsView';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import StatementsView from "@/components/StatementsView";
-import ProfileView from "@/components/ProfileView";
+import withSuspense from "@/router/withSuspense";
+
+// Improve performance and bundle size by lazy-loading Profile and Statements pages
+const ProfileView = withSuspense(React.lazy(() => import('@/components/ProfileView')));
+const StatementsView = withSuspense(React.lazy(() => import('@/components/StatementsView')));
 
 const Router = () => {
   return (

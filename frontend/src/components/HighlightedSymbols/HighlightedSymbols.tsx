@@ -3,6 +3,7 @@ import './highlightedSymbols.css';
 
 import PerformanceCard from '@/components/PerformanceCard';
 import Row from '@/components/Row';
+import {getLargeNumberWithCurrency} from "@/utils/numbers";
 
 type HighlightedSymbol = {
   trend?: 'UP' | 'DOWN' | null;
@@ -58,9 +59,8 @@ const HighlightedSymbols = () => {
           <PerformanceCard
             change={symbol.change}
             key={index}
-            trend={symbol.trend}
             title={symbol.symbolId}
-            volume={symbol.volume}
+            volume={getLargeNumberWithCurrency(symbol.volume)}
           />
         );
       })}
