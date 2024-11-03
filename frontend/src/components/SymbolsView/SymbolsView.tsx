@@ -4,14 +4,15 @@ import PriceChart from '@/components/PriceChart';
 import DesktopInfo from './src/DesktopInfo';
 import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { dashboardOptionsSlice, selectors } from "@/store/dashboardOptionsSlice";
+import {useCallback} from "react";
 
 const SymbolsView = () => {
   const activeSymbol = useAppSelector(selectors.getActiveSymbol);
   const dispatch = useAppDispatch();
 
-  const handleSymbolClick = (symbolId: string) => {
-    dispatch(dashboardOptionsSlice.actions.setActiveSymbol(symbolId !== activeSymbol ? symbolId : null));
-  };
+  const handleSymbolClick = useCallback((symbolId: string | null) => {
+    dispatch(dashboardOptionsSlice.actions.setActiveSymbol(symbolId));
+  }, []);
 
   return (
     <div className="symbolsView">

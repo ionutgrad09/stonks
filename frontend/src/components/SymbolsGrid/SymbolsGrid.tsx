@@ -5,7 +5,7 @@ import SymbolCard from '../SymbolCard';
 import { fetchAllStocks, selectors } from '@/store/stocksSlice';
 
 type SymbolsGridProps = {
-  onSymbolClick: (symbolId: string) => void;
+  onSymbolClick: (symbolId: string | null) => void;
   activeSymbol: string | null;
 };
 
